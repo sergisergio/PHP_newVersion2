@@ -1,0 +1,37 @@
+<div class="container inner">
+        <div class="blog grid-view row">
+            <div class="col-md-8 col-sm-12 content">
+                {% include('admin/dashboard/_partials/pagination.html.twig') %}
+                <div class="divide40"></div>
+                <div class="blog-posts">
+                    <div class="isotope row">
+                        {% for post in posts %}
+                        <div class="col-md-6">
+                            <div class="post box">
+                                <figure class="frame main"><a href="index.php?c=blog&t=post&id={{ post.id }}">
+                                        <div class="text-overlay">
+                                            <div class="info"><span>Voir plus {{ loop.index }}</span></div>
+                                        </div>
+                                        <img src="../../../img/{{ post.image }}" alt="" /></a></figure>
+                                <div class="meta">
+                                    <span class="category">
+
+                                    </span>
+                                    <span class="date">{{ post.createdAt | date("d/m/Y") }}</span>
+                                    <span class="comments"><a href="#">{{ post.numberComments }} <i class="icon-chat-1"></i></a></span>
+                                </div>
+                                <h2 class="post-title"><a href="">{{ post.title }}</a></h2>
+                                {{ post.content | slice(0, 200) | raw }}
+                            </div>
+                            <div class="divide40"></div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+                <div class="divide60"></div>
+                {# include('admin/dashboard/_partials/pagination.html.twig') #}
+            </div>
+            {{ include('front/blog/_partials/aside/index.html.twig')}}
+        </div>
+        <div class="divide100"></div>

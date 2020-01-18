@@ -1,0 +1,24 @@
+<div class="sidebox box widget">
+    <h3 class="widget-title section-title">Articles les plus commentés</h3>
+    <ul class="post-list">
+        {% for popular in populars %}
+        <li>
+            <figure class="pull-left">
+                <div class="icon-overlay"><a href="/blog/article/{{ popular.id }}">
+                    <img src="../../img/{{ popular.image}}" class="img-fluid img-thumbnail" style="vertical-align: middle;width:20%;" alt="" />
+                    <div class="meta" style="margin-bottom: 16px;margin-top: -57px;">
+                        <em><span class="date">{{ popular.created_at|date}}</span>
+                            <span class="comments">
+                                <a href="#">{{ popular.numberComments }} <i class="icon-chat-1"></i></a>
+                            </span>
+                        </em>
+                        <h5>{{ popular.title }}</h5>
+                    </div>
+                </a>
+            </div>
+            </figure>
+        </li>
+        {% endfor %}
+    </ul>
+    <!-- /.post-list -->
+</div>

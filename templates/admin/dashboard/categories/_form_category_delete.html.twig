@@ -1,0 +1,6 @@
+<form id="deleteCategory" method="post" action="?c=adminCategory&t=deleteCategory&id={{ category.id }}" class="delete-form">
+  <button type="submit" class="btn btn-danger" onclick="return confirm('Confirmer la suppression ?');">
+    <i class="fa fa-trash-o"></i>
+  </button>
+  <input type="hidden" name="delete_category_token" id="delete_category_token" value="{{ delete_category_token }}" />
+</form>

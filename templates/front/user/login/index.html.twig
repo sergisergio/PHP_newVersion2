@@ -1,0 +1,15 @@
+{% extends "./base.html.twig" %}
+
+{% block main %}
+    <div class="container inner">
+        <div class="box" style="margin-top: 150px;">
+            <div class="form-container">
+                {% include('front/_forms/login.html.twig') %}
+                <div class="text-center" style="margin-top:20px;">Pas encore inscrit? <a href="?c=login&t=registration">Inscription</a></div>
+              <div class="text-center" style="margin-top:20px;"><a href="index.php">Retourner à l'accueil</a></div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}

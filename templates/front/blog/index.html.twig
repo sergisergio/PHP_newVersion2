@@ -1,0 +1,17 @@
+{% extends "./base.html.twig" %}
+
+{% block nav %}{% include('front/_partials/nav.html.twig') %}{% endblock %}
+
+{% block header %}{% endblock %}
+
+{# Main content #}
+{% block main %}
+
+    {% include 'front/blog/_partials/views/posts.html.twig' %}
+
+{% endblock %}
+
+{% block footer %}{% include('front/_partials/footer.html.twig') %}{% endblock %}
+
+{% block js %}
+{% endblock %}

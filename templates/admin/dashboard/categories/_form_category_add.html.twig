@@ -1,0 +1,11 @@
+<form id="addCategory" action="index.php?c=adminCategory&t=addCategory" method="post" enctype="multipart/form-data">
+  <div>
+    <label for="name">Nom</label><br />
+    <input type="text" id="name" name="name" placeholder="nom" />
+  </div>
+  <div class="divide40"></div>
+  <div>
+    <input class="btn btn-default" type="submit" style="width: 100px;display: block; margin: 0 auto;"/>
+  </div>
+  <input type="hidden" name="add_category_token" id="add_category_token" value="{{ add_category_token }}" />
+</form>

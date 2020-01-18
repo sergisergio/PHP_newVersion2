@@ -1,0 +1,53 @@
+<nav class="navbar navbar-default">
+    <div class="navbar-header"> <a class="btn responsive-menu" data-toggle="collapse" data-target=".navbar-collapse"><i></i></a>
+        <!--<div class="navbar-brand text-center"> <a href="index.html"><img src="style/images/logo.png" alt="" data-src="style/images/logo.png" data-ret="style/images/logo@2x.png" class="retina" /></a> </div>-->
+        <!-- /.navbar-brand -->
+    </div>
+    <!-- /.navbar-header -->
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li class="current"><a href="/">Accueil</a></li>
+            <li><a href="/#portfolio">Portfolio</a></li>
+            <li><a href="/#about">A propos</a></li>
+            <li><a href="/#skills">Compétences</a></li>
+            <li><a href="/#contact">Contact</a></li>
+            <li><a href="/blog/1/1">Blog</a></li>
+            {% if session.admin != null %}
+                <li><a href="index.php?c=adminDashboard&page=1">Admin</a></li>
+            {% endif %}
+            {% if not session.admin and not session.user %}
+            <li><a href="" data-toggle="modal" data-target="#connexion">Connexion</a></li>
+            {% include 'front/user/_modals/login.html.twig' %}
+            <li><a href="" data-toggle="modal" data-target="#inscription">Inscription</a></li>
+            {% include 'front/user/_modals/register.html.twig' %}
+            {% endif %}
+            {% if session.user != null%}
+                <li style="width: 85px;" class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="../assets/img/{{ session.user.image }}" alt="" class="img-responsive img-circle" style="width: 100%;margin-top: -16px;float:right;">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="?c=account">Mon compte</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="index.php?c=login&t=logout"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
+                      </ul>
+                </li>
+                {% elseif session.admin != null %}
+                <li style="width: 85px;" class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        <img src="../assets/img/{{ session.admin.image }}" class="img-responsive img-circle" style="width: 100%;margin-top: -16px;float:right;" alt="">
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="?c=account">Mon compte</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="index.php?c=login&t=logout"><i class="fa fa-sign-out"></i>&nbsp;&nbsp;Déconnexion</a></li>
+                      </ul>
+                </li>
+            {% endif%}
+            <!--<li><a href="style/pdf/CV_TRAON_2019.pdf" class="hint--right" data-hint="CV"><i class="budicon-note-9"></i><span>CV</span></a></li>-->
+        </ul>
+        <!-- /.navbar-nav -->
+    </div>
+    <!-- /.navbar-collapse-->
+    <!-- /#elsewhere -->
+</nav>

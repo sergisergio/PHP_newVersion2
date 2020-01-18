@@ -1,0 +1,8 @@
+<div class="sidebox box widget">
+    <h3 class="widget-title section-title">Tags</h3>
+    <ul class="tag-list">
+        {% for tag in tags %}
+        <li><a href="?c=blog&t=getPostsByTag&tag={{ tag.name }}&page=1" class="btn">{{ tag.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

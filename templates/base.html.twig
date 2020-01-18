@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="Philippe Traon | Développeur web" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:type" content="article" />
+    <!-- <meta prefix="og: http://ogp.me/ns#" property="og:mini" content="true" /> -->
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="http://philippetraon.com/?42" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="http://philippetraon.com/style/images/ogimage.png" />
+    <meta property="og:image:width" content="180" />
+    <title>{% block title %}Philippe Traon - Développeur web{% endblock %}</title>
+    <link rel="shortcut icon" href="#">
+    <link href="../../../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,800,700,600,500,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
+    <link href="../../../css/fontello.css" rel="stylesheet">
+    <link href="../../../css/budicons.css" rel="stylesheet">
+    <link href="../../../css/plugins.css" rel="stylesheet">
+    <link href="../../../css/prettify.css" rel="stylesheet">
+    <link href="../../../css/style.css" rel="stylesheet">
+    <link href="../../../css/green.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../css/component.css" />
+    <link rel="stylesheet" href="../../../css/content.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/noty.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/themes/nest.css">
+    <link rel="stylesheet" href="../../../css/perso.css" />
+    <script src="../../../js/modernizr.custom.js"></script>
+    {% block stylesheet %}{% endblock %}
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="style/js/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+
+</head>
+<body class="full-layout">
+    {% block circle %}{% endblock %}
+    <div class="body-wrapper">
+    {% block nav %}{% endblock %}
+
+        <div class="container">
+            {% block header %}{% endblock %}
+            {% block main %}{% endblock %}
+            {% block footer %}{% endblock %}
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/noty@3.2.0-beta/lib/noty.min.js"></script>
+    <script src="../../../js/jquery.min.js"></script>
+    <script src="../../../js/login.js"></script>
+    <script src="../../../js/signup.js"></script>
+    <script src="../../../js/contact.js"></script>
+    <script src="../../../js/bootstrap.min.js"></script>
+    <script src="../../../js/jquery.themepunch.tools.min.js"></script>
+    <script src="../../../js/classie.js"></script>
+    <script src="../../../js/plugins.js"></script>
+    <script src="../../../js/scripts.js"></script>
+    <script src="../../../js/classie2.js"></script>
+    <script>
+    $.backstretch(["../../../img/react2.png"]);
+    </script>
+    <script>
+    $(function() {
+        $('[data-toggle="tooltip"]').tooltip({ trigger: 'manual' }).tooltip('show');
+    });
+    </script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-101090553-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+    {% if session.user != null or session.admin != null %}
+    <script src="https://cdn.tiny.cloud/1/bu5ham6xychsfqjny6a3sxl6r73e1wt3lyjl93m2p8sodbnj
+/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>tinymce.init({
+      selector:'.textarea',
+      plugins: [
+        'advlist autolink link image imagetools media lists charmap print preview hr anchor pagebreak spellchecker',
+        'searchreplace wordcount visualblocks visualchars code advcode fullscreen insertdatetime media nonbreaking',
+        'table emoticons template paste help'
+      ],
+      toolbar: "undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | bullist numlist | emoticons | code",
+      menubar: 'favs file edit view insert format tools table help',
+      encoding: 'xml',
+      entity_encoding: 'raw',
+      entities: '160,nbsp',
+      language : 'fr_FR',
+    });</script>
+    {% endif %}
+    {% block js %}{% endblock %}
+</body>
+</html>
