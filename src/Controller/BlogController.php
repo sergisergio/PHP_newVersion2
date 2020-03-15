@@ -5,6 +5,7 @@ namespace App\Controller;
 use Core\View;
 use Core\Request;
 use Core\Response;
+use App\Entity\Post;
 use Repository\BlogRepository;
 use Service\PaginationService;
 use Repository\ConfigRepository;
@@ -25,6 +26,7 @@ class BlogController extends Controller
     protected $tagRepository;
     protected $linkRepository;
     protected $commentRepository;
+    protected $post;
     /**
      * @var View
      */
@@ -39,6 +41,7 @@ class BlogController extends Controller
         $this->tagRepository = new TagRepository;
         $this->linkRepository = new LinkRepository;
         $this->commentRepository = new CommentRepository;
+        $this->post = new Post;
         $this->view = new View;
     }
     /**
@@ -63,6 +66,7 @@ class BlogController extends Controller
         //         die();
         //     }
         // }
+        var_dump($this->post->getId());die();
         $view = $request->attributes->get('v');
         $currentPage = $request->attributes->get('p');
         //$view = $_GET['v'];

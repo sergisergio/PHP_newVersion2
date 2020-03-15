@@ -2,6 +2,8 @@
 
 namespace Repository;
 
+use App\Entity\Post;
+
 /**
  * CLASSE GERANT LES ARTICLES
  */
@@ -117,7 +119,9 @@ class BlogRepository extends Repository
         $req->bindParam(':start', $start, \PDO::PARAM_INT);
         $req->bindParam(':results_per_page', $results_per_page, \PDO::PARAM_INT);
         $req->execute();
-        return $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Post::class);
+        $posts =  $req->fetchAll();
+        return $posts;
     }
     /**
      * RECUPERER TOUS LES TAGS PAR ARTICLE
@@ -142,7 +146,9 @@ class BlogRepository extends Repository
             INNER JOIN user u on p.user_id = u.id
             INNER JOIN image i on p.img_id = i.id');
         $req->execute();
-        return $req->fetchAll(\PDO::FETCH_ASSOC);
+        $req->setFetchMode(\PDO::FETCH_CLASS | \PDO::FETCH_PROPS_LATE, Post::class);
+        $posts =  $req->fetchAll();
+        return $posts;
     }
     /**
      * RECUPERER LES 3 ARTICLES LES PLUS COMMENTES
